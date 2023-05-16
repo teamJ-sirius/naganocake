@@ -36,14 +36,11 @@ class DeviseCreateCustomers < ActiveRecord::Migration[6.1]
       t.string :first_name
       t.string :last_name_kana
       t.string :first_name_kana
-      t.string :email
       t.string :password
       t.string :postcode
       t.string :addresse
       t.string :phone_number
       t.boolean :is_deleted
-      t.detatime :created_at
-      t.detatime :updated_at
       t.timestamps null: false
     end
 
