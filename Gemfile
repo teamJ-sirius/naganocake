@@ -59,3 +59,4 @@ gem 'bootstrap', '~> 4.3.1'
 gem 'jquery-rails'
 gem 'bootstrap_form'
 gem 'ransack'
+gem "enum_help"

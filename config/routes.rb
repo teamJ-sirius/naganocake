@@ -1,14 +1,23 @@
 Rails.application.routes.draw do
+  
+  devise_for :admins
+  devise_for :customers
+
   namespace :public do
-    root to: 'homes#top'
+    root 'homes#top'
     get '/about' => 'homes#about'
-    
+
   # 配送先
-    resources :shipping_addresses, only: [:index, :create, :edit, :update, :destroy]
-    
+    resources :shipping_addresses
+
   # 注文
-    resources :orders, only: [:new, :index, :show, :create, :confirm, :complete]
-    
+    resources :orders, only: [:new, :index, :show, :create]do
+      member do
+        post :confirm
+        get :complete
+      end
+    end
+
   # カート
     resources :cart_items, only: [:index, :update, :destroy, :create]do
       delete 'destroy_all' => 'cart_items#destroy_all'
@@ -16,19 +25,15 @@ Rails.application.routes.draw do
 
   # カスタマー
     resources :customers, only: [:show, :edit, :update]do
-      menber do
+      collection do
         get :unsubscribe
         patch :withdraw
       end
     end
-    
+
   # 商品
     resources :itemes, only: [:index, :show]
-    
-  end
-  
-  devise_for :admins
-  devise_for :customers
 
+  end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
