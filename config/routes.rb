@@ -1,22 +1,23 @@
 Rails.application.routes.draw do
-  
-  devise_for :admins
-  devise_for :customers
+  devise_for :admins, skip: [:registrations, :passwords], controllers: {
+  sessions: "admin/sessions"
+}
 
-  namespace :public do
-    root 'homes#top'
+  devise_for :customers, skip: [:passwords], controllers: {
+  registrations: "public/registrations",
+  sessions: 'public/sessions'
+}
+
+
+  scope module: :public do
+    root to: 'homes#top'
     get '/about' => 'homes#about'
 
   # 配送先
-    resources :shipping_addresses
+    resources :shipping_addresses, only: [:index, :create, :edit, :update, :destroy]
 
   # 注文
-    resources :orders, only: [:new, :index, :show, :create]do
-      member do
-        post :confirm
-        get :complete
-      end
-    end
+    resources :orders, only: [:new, :index, :show, :create, :confirm, :complete]
 
   # カート
     resources :cart_items, only: [:index, :update, :destroy, :create]do
@@ -25,7 +26,7 @@ Rails.application.routes.draw do
 
   # カスタマー
     resources :customers, only: [:show, :edit, :update]do
-      collection do
+      member do
         get :unsubscribe
         patch :withdraw
       end
