@@ -5,7 +5,7 @@ class Public::ItemesController < ApplicationController
   end
 
   def show
-
+    @cart_item = CartItem.new
   end
 
   private

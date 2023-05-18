@@ -11,6 +11,10 @@ Rails.application.routes.draw do
 
   # カート
     resources :cart_items, only: [:index, :update, :destroy, :create]do
+      member do
+        patch 'increase'
+        patch 'decrease'
+      end
       delete 'destroy_all' => 'cart_items#destroy_all'
     end
 
