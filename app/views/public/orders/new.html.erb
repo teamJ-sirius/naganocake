@@ -16,8 +16,8 @@
        <%= f.radio_button :select_address, 0, checked: "checked" %>
        <%= f.label :address_number_1, "ご自身の住所" %>
        <% if current_customer %>
-        〒<%= current_customer.post_code %>
-          <%= current_customer.address %><br>
+        〒<%= current_customer.postcode %>
+          <%= current_customer.addresse %><br>
           <%= current_customer.first_name %><%= current_customer.last_name %><br>
         <% end %>
      </div>

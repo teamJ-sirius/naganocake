@@ -1,6 +1,6 @@
 <div class="addresses_edit">
   <h3>配送先編集</h3>
-  <%= form_with model: @shipping_address, url: public_shipping_addresses_path, method: :post do |f|%>
+  <%= form_with model: @shipping_address, method: :patch do |f|%>
     <h5>郵便番号</h5>
     <%= f.text_field :post_code %>
     <h5>住所</h5>
