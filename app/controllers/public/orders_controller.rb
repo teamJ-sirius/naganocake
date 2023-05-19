@@ -16,9 +16,11 @@ class Public::OrdersController < ApplicationController
   end
 
   def index
+    @orders = Order.all
   end
 
   def show
+    @order_detail = OrderDetail.find(params[:id])
   end
 
   def confirm
