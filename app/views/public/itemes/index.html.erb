@@ -3,16 +3,18 @@
     <div class="col">
       <h1>商品一覧</h1><h4>(全<%= @items.count %>件)</h4>
     </div>
-    <div class="row">
-    <% @items.each do |item| %>
-      <div class="col">
-      <%= link_to iteme_path(item.id) do %>
-        <%= image_tag item, :imge, fallback: "no-image.png" %>
-        <%= item.item_name %>
-         ¥<%= item.price %>
-      <% end %>
-      </div>
-    <% end %>
+    <div class="col">
+      <table class="table">
+        <% @items.each do |item| %>
+          <tr>
+            <td><%= link_to iteme_path(item.id) do %></td>
+            <td><%= image_tag item, :imge, fallback: "no-image.png" %></td>
+            <td><%= item.item_name %></td>
+            <td>¥<%= item.price %></td>
+                <% end %>
+          </tr>
+        <% end %>
+      </table>
     </div>
   </div>
 </div>
