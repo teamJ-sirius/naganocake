@@ -6,8 +6,9 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%#= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
@@ -16,7 +17,7 @@
         <!--divあとで消す-->
         <% if customer_signed_in? %>
          <%= link_to "HOME", root_path %>
-         <%= button_to "ログアウト", destroy_customer_session_path, method: :delete %>
+         <%= link_to "ログアウト", destroy_customer_session_path, method: :delete %>
          <%= link_to "マイページ", customer_path(current_customer) %>
         <% else %>
          <%= link_to "HOME", root_path %>
