@@ -1,16 +1,22 @@
-  <%= image_tag item, @item, :imge, fallback: "no-image.png" %>
-    <%= @item.item_name %>
-    <%= @item.item_description %>
-    <%= @item.item_genre_id %>
-    ¥<%= (@item.price*1.1)(税込) %>
-  <!--販売ステータス -->
-　<% if @item.sales_status == true %>
-    <%= form_with model: @cart_item, url: cart_items_path, method: :post do |f| %>
-      <%= f.hidden_field :item_id, value: @item.id %>
-      <%= f.select :amount, *[1..10] %>
-      <%= submit "カートに追加" %>
-      <p>販売中</p>
+ <div class="container">
+  <div class="row">
+    <div class="col">
+      <%= image_tag item, @item, :imge, fallback: "no-image.png" %>
+        <%= @item.item_name %>
+        <%= @item.item_description %>
+        <%= @item.item_genre_id %>
+      ¥<%= (@item.price*1.1)(税込) %>
+    <!--販売ステータス -->
+  　<% if @item.sales_status == true %>
+      <%= form_with model: @cart_item, url: cart_items_path, method: :post do |f| %>
+        <%= f.hidden_field :item_id, value: @item.id %>
+        <%= f.select :amount, *[1..10] %>
+        <%= submit "カートに追加" %>
+        <p>販売中</p>
+      <% end %>
+    <% else %>
+      <p>売り切れ</p>
     <% end %>
-  <% else %>
-    <p>売り切れ</p>
-  <% end %>
+    </div>
+  </div>
+</div>
