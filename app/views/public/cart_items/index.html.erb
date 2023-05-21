@@ -15,6 +15,7 @@
     <tbody>
     <% @cart_items.each do |cart_item| %>
       <tr>
+        <td><%= image_tag %></td>
         <td><%= cart_item.item.item_name %></td>
         <td><%= cart_item.item.with_tax_price %></td>
         <td><%= cart_item.subtotal %></td>
