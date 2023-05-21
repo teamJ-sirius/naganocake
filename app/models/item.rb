@@ -5,4 +5,5 @@ class Item < ApplicationRecord
   has_one_attached :image
 
   validates :item_name, presence: true
+  validates :sales_status, inclusion: { in: [true, false] }
 end
