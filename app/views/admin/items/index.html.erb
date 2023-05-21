@@ -7,7 +7,11 @@
         <% @items.each do |item| %>
           <tr>
             <td><%= link_to admin_item_path(item.id) do %></td>
-            <td><%= image_tag item, :imge, fallback: "no-image.png" %></td>
+             <% if item.image.attached? %>
+            <td><%= image_tag item.image %></td>
+              <% else %>
+            <%= image_tag 'no_image.jpg' %>
+              <% end %>
             <td><%= item.item_name %></td>
             <td>¥<%= item.price %></td>
                 <% end %>
