@@ -1,2 +1,23 @@
-<h1>Admin::Items#index</h1>
-<p>Find me in app/views/admin/items/index.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h1>商品一覧</h1>
+      <br><%= link_to "新規登録", new_admin_item_path %>
+      <table class="table">
+        <% @items.each do |item| %>
+          <tr>
+            <td><%= link_to admin_item_path(item.id) do %></td>
+             <% if item.image.attached? %>
+            <td><%= image_tag item.image %></td>
+              <% else %>
+            <%= image_tag 'no_image.jpg' %>
+              <% end %>
+            <td><%= item.item_name %></td>
+            <td>¥<%= item.price %></td>
+                <% end %>
+          </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>
