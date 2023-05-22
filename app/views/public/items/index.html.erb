@@ -16,13 +16,12 @@
         <% @items.each do |item| %>
         <tbody>
           <tr>
-            <td><%= link_to iteme_path(item.id) do %>
-                  <% if item.image.attached? %>
-                    <%= image_tag item.image %>
-                  <% else %>
-                    <%= image_tag 'no_image.jpg' %>
-                  <% end %>
-            </td>
+            <td><%= link_to item_path(item.id) do %></td>
+             <% if item.image.attached? %>
+            <td><%= image_tag item.image %></td>
+              <% else %>
+            <%= image_tag 'no_image.jpg' %>
+              <% end %>
             <td><%= item.item_name %></td>
             <td>¥<%= item.price %></td>
                 <% end %>

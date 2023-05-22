@@ -12,13 +12,18 @@
   </div>
 
   <div class="field">
+    商品ジャンル<br/>
+    <%= f.select :genre_id, options_for_select(Genre.pluck(:name, :id)) %>
+  </div>
+
+  <div class="field">
     税抜価格<br/>
     <%= f.number_field :price, class: "form-control", style: "border-color: #ccc; width: 250px; margin: 15px 0px;" %>
   </div>
 
   <div class="field">
     商品画像<br/>
-    <%= f.file_field :images, accept: "image/*", style: "margin: 10px 0px;" %>
+    <%= f.file_field :image, accept: "image/*", style: "margin: 10px 0px;" %>
   </div>
 
 
