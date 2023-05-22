@@ -1,8 +1,8 @@
 class Public::OrdersController < ApplicationController
   def new
     cart_items = current_customer.cart_items
-    if cart_items.present?
       @order = Order.new
+    if cart_items.present?
       @shipping_addresses = ShippingAddress.all
     else
       flash[:notice] = "・カートが空です"
@@ -13,7 +13,7 @@ class Public::OrdersController < ApplicationController
     @order = Order.new(order_params)
     @order.customer_id = current_customer.id
     @order.save
-　  redirect_to orders_complete_path
+    redirect_to orders_complete_path
   end
 
   def index
@@ -25,21 +25,21 @@ class Public::OrdersController < ApplicationController
   end
 
   def confirm
-    # @cart_items =  current_customer.cart_items
-    # @order = Order.new(order_params)
-    # if params[:order][:select_address] == "1"
-    #   @order.name = "#{current_customer.last_name}" + "#{current_customer.first_name}"
-    #   @order.post_code = current_customer.postcode
-    # 　  @order.address = current_customer_addresse
-    # elseif params[:order][:select_address] == "2"
-    #   @order.name = ShippingAddress.find(params[:order][:address_id]).last_name + first_name
-    #   @order.post_code = ShippingAddress.find(params[:order][:address_id]).postcode
-    #   @order.address = ShippingAddress.find(params[:order][:address_id]).addresse
-    # elseif params[:order][:select_address] == "3"
-    #   @order.name = params[:order][:last_name + first_name]
-    #   @order.post_code = params[:order][:postcode]
-    # 　  @order.address =params[:order][:address]
-    # end
+    @cart_items =  current_customer.cart_items
+    @order = Order.new(order_params)
+    if params[:order][:select_address] == "1"
+      @order.name = "#{current_customer.last_name}" + "#{current_customer.first_name}"
+      @order.post_code = current_customer.postcode
+      @order.address = current_customer.addresse
+    elsif params[:order][:select_address] == "2"
+      @order.name = ShippingAddress.find(params[:order][:address_id]).address_name
+      @order.post_code = ShippingAddress.find(params[:order][:address_id]).post_code
+      @order.address = ShippingAddress.find(params[:order][:address_id]).address
+    elsif params[:order][:select_address] == "3"
+      @order.name = params[:order][:name]
+      @order.post_code = params[:order][:post_code]
+      @order.address =params[:order][:address]
+    end
   end
 
   def complete
