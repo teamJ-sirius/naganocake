@@ -1,45 +1,39 @@
- <div class="row">
-  <div class="col">
-    <h1>商品詳細</h1>
-    <br>
-      <% if @item.image.attached? %>
-      <td><%= image_tag @item.image %></td>
-           <% else %>
-          <%= image_tag 'no_image.jpg' %>
-            <% end %>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h1>商品詳細</h1>
+    </div>
   </div>
-  <div class="col">
-    <table class="table">
-      <tbody>
-
-        <tr>
-          <td>商品名</td>
-          <td><%= @item.item_name %></td>
-        </tr>
-        <tr>
-          <td>商品の説明</td>
-          <td> <%= @item.item_description %></td>
-        </tr>
-        <tr>
-          <td>税込価格</td>
-          <td>¥<%= (@item.price*1.1) %></td>
-        </tr>
-    <!--販売ステータス -->
-        <tr>
-          <td>販売ステータス</td>
-          <td><% if @item.sales_status == false %>
-                <%= form_with model: @cart_item, url: cart_items_path, method: :post do |f| %>
-                <%= f.hidden_field :item_id, value: @item.id %>
-                <%= f.select :amount, *[1..10] %>
-                <%= f.submit "カートに追加" %>
-                <p>販売中</p>
-                <% end %>
-                <% else %>
-                <p>売り切れ</p>
+  <div class="row">
+    <div class="col">
+      <br>
+       <% if @item.image.attached? %>
+        <td><%= image_tag @item.image %></td>
+       <% else %>
+         <%= image_tag 'no_image.jpg' %>
+       <% end %>
+    </div>
+    <div class="col">
+      <dl class="dl">
+        <dt>商品名</dt>
+          <dd><%= @item.item_name %></dd><br>
+        <dt>商品の説明</dt>
+          <dd> <%= @item.item_description %></dd><br>
+        <dt>税込価格</dt>
+          <dd>¥<%= (@item.price*1.1) %></dd><br>
+        <dt>販売ステータス</dt>
+          <dd><% if @item.sales_status == false %>
+              <%= form_with model: @cart_item, url: cart_items_path, method: :post do |f| %>
+               <%= f.hidden_field :item_id, value: @item.id %>
+               <%= f.select :amount, *[1..10] %>
+               <%= f.submit "カートに追加" %>
+            <p>販売中</p>
               <% end %>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+              <% else %>
+            <p>売り切れ</p>
+             <% end %>
+          </dd>
+      </dl>
+    </div>
   </div>
 </div>

@@ -1,23 +1,45 @@
 <div class="container">
   <div class="row">
     <div class="col">
-      <h1>商品一覧</h1>
-      <br><%= link_to "新規登録", new_admin_item_path %>
+        <%= link_to "新規登録", new_admin_item_path %><h1>商品一覧</h1>
       <table class="table">
+          <thead>
+            <tr>
+              <td>商品ID</td>
+              <td>イメージ</td>
+              <td>商品名</td>
+              <td>税抜価格</td>
+              <td>ステータス</td>
+            </tr>
+          </thead>
+    </div>
+    <div class="row">
+      <div class="col">
         <% @items.each do |item| %>
+        <tbody>
           <tr>
-            <td><%= link_to admin_item_path(item.id) do %></td>
-             <% if item.image.attached? %>
-            <td><%= image_tag item.image %></td>
-              <% else %>
-            <%= image_tag 'no_image.jpg' %>
-              <% end %>
+            <td><%= item.id %></td>
+            <td><%= link_to admin_item_path(item.id) do %>
+                  <% if item.image.attached? %>
+                    <%= image_tag item.image %></td>
+                  <% else %>
+                    <%= image_tag 'no_image.jpg' %>
+                  <% end %>
+            </td>
             <td><%= item.item_name %></td>
             <td>¥<%= item.price %></td>
+            <td><% if item.sales_status == false %>
+                <p>販売中</p>
+                <% else %>
+                <p>売り切れ</p>
+              <% end %>
+          </td>
                 <% end %>
           </tr>
+          </tbody>
         <% end %>
-      </table>
+        </table>
+      </div>
     </div>
   </div>
 </div>
