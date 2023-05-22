@@ -8,9 +8,9 @@
     <div class="col">
       <br>
         <% if @item.image.attached? %>
-       <td><%= image_tag @item.image %></td>
+       <td><%= image_tag @item.image, size: "300x300" %></td>
         <% else %>
-         <%= image_tag 'no_image.jpg' %>
+         <%= image_tag 'no_image.jpg', size: "300x300" %>
         <% end %>
     </div>
     <div class="col">
@@ -20,7 +20,7 @@
         <dt>商品の説明</dt>
           <dd> <%= @item.item_description %></dd><br>
         <dt>税込価格</dt>
-          <dd>¥<%= (@item.price*1.1) %></dd><br>
+          <dd>¥<%= (@item.price*1.1).floor %></dd><br>
         <dt>販売ステータス</dt>
           <dd><% if @item.sales_status == false %>
                 <p>販売中</p>
@@ -29,7 +29,7 @@
               <% end %>
           </dd>
         <dt>
-          <dd><%= link_to '編集', edit_admin_item_path(@item.id) %></dd>
+          <dd><%= link_to '編集', edit_admin_item_path(@item.id), class: "btn btn-primary" %></dd>
         </dt>
       </dl>
     </div>

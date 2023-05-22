@@ -1,13 +1,15 @@
 <div class="container">
   <div class="row">
     <div class="col">
-        <%= link_to "新規登録", new_admin_item_path %><h1>商品一覧</h1>
+        <%= link_to "新規登録", new_admin_item_path, class: "btn btn-primary" %>
+        <h1>商品一覧</h1>
       <table class="table">
           <thead>
             <tr>
               <td>商品ID</td>
               <td>イメージ</td>
               <td>商品名</td>
+              <td>ジャンル</td>
               <td>税抜価格</td>
               <td>ステータス</td>
             </tr>
@@ -21,12 +23,13 @@
             <td><%= item.id %></td>
             <td><%= link_to admin_item_path(item.id) do %>
                   <% if item.image.attached? %>
-                    <%= image_tag item.image %></td>
+                    <%= image_tag item.image, size: "100x100" %>
                   <% else %>
-                    <%= image_tag 'no_image.jpg' %>
+                    <%= image_tag 'no_image.jpg', size: "100x100" %>
                   <% end %>
             </td>
             <td><%= item.item_name %></td>
+            <td><%= item.genre_id %></td>
             <td>¥<%= item.price %></td>
             <td><% if item.sales_status == false %>
                 <p>販売中</p>
