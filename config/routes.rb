@@ -34,7 +34,7 @@ Rails.application.routes.draw do
     end
 
   # 商品
-    resources :itemes, only: [:index, :show]
+    resources :items, only: [:index, :show]
 
   end
 

@@ -7,7 +7,7 @@
       <table class="table">
         <% @items.each do |item| %>
           <tr>
-            <td><%= link_to iteme_path(item.id) do %></td>
+            <td><%= link_to item_path(item.id) do %></td>
              <% if item.image.attached? %>
             <td><%= image_tag item.image %></td>
               <% else %>
