@@ -30,7 +30,7 @@
           <td><% if @item.sales_status == false %>
                 <%= form_with model: @cart_item, url: cart_items_path, method: :post do |f| %>
                 <%= f.hidden_field :item_id, value: @item.id %>
-                <%= f.select :amount, *[1..10] %>
+                <%= f.select :quantity, *[1..10] %>
                 <%= f.submit "カートに追加" %>
                 <p>販売中</p>
                 <% end %>
