@@ -4,7 +4,12 @@ class Admin::ItemsController < ApplicationController
   end
 
   def new
-    @item = Item.new
+    if Genre.count.zero?
+      flash[:alert] = "先にジャンルを追加してください"
+      redirect_to admin_genres_path
+    else
+      @item = Item.new
+    end
   end
 
   def create
