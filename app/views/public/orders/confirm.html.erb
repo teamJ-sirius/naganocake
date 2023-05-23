@@ -1,6 +1,5 @@
 <div>
   <h3>注文情報</h3>
-
     <table>
       <thead>
         <tr>
@@ -23,7 +22,6 @@
               <% subtotal += cart_item.item.price * cart_item.quantity %>
             </tr>
           <% end %>
-          <p>Total: <%= subtotal %>円</p>
       </tbody>
     </table>
     <table>
@@ -55,9 +53,11 @@
       		</tr>
       	</tbody>
       </table>
+      <% @order.total_price = postage + subtotal %> 
 
       <%= form_with model: @order, url: orders_path, method: :post do |f| %>
         <%= f.hidden_field :customer_id, value: current_customer.id %>
+        <%= f.hidden_field :total_price %>
         <%= f.hidden_field :name %>
         <%= f.hidden_field :post_code %>
         <%= f.hidden_field :address %>
