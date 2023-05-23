@@ -22,11 +22,8 @@
           <tr>
             <td><%= item.id %></td>
             <td><%= link_to admin_item_path(item.id) do %>
-                  <% if item.image.attached? %>
-                    <%= image_tag item.image, size: "100x100" %>
-                  <% else %>
-                    <%= image_tag 'no_image.jpg', size: "100x100" %>
-                  <% end %>
+                  <%= image_tag item.image, size: "100x100" %>
+                <% end %>
             </td>
             <td><%= item.item_name %></td>
             <td><%= item.genre_id %></td>
