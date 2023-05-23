@@ -10,8 +10,9 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body data-spy="scroll" data-target="#h-nav" data-offset="86" style="padding-top: 5rem">
 <!--ヘッダー-->
+
     <%= render "layouts/header" %>
 <!--フラッシュメッセージ-->
     <% flash.each do |message_type, message| %>
