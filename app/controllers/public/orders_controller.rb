@@ -1,8 +1,8 @@
 class Public::OrdersController < ApplicationController
   def new
     cart_items = current_customer.cart_items
-      @order = Order.new
     if cart_items.present?
+      @order = Order.new
       @shipping_addresses = ShippingAddress.all
     else
       flash[:notice] = "・カートが空です"
