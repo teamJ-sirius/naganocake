@@ -13,7 +13,7 @@
 
   <div class="field">
     商品ジャンル<br/>
-    <%= f.select :genre_id, options_for_select(Genre.pluck(:name, :id)) %>
+    <%= f.select :genre_id, options_for_select([['選択してください', nil]] + Genre.pluck(:name, :id), '選択してください') %>
   </div>
 
   <div class="field">
