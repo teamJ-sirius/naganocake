@@ -1,0 +1,25 @@
+<div class="container">
+  <h2>注文履歴一覧</h2>
+  <div class="order_table">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>購入日時</th>
+          <th>購入者</th>
+          <th>金額</th>
+          <th>注文ステータス</th>
+        </tr>
+      </thead>
+      <tbody>
+      <% @orders.each do |order| %>
+        <tr>
+          <td><%= link_to order.created_at.strftime("%Y-%m-%d %H:%M:%S"), admin_order_path %></td>
+          <td><%= order.customer.first_name + order.customer.last_name %></td>
+          <td><%= order.total_price %></td>
+          <td><%= order.order_status %></td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
