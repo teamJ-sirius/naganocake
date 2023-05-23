@@ -1,24 +1,32 @@
 <div class="container">
   <div class="row">
     <div class="col">
-      <h1>商品一覧</h1><h4>(全<%= @items.count %>件)</h4>
+       <h1>商品一覧</h1><h4>(全<%= @items.count %>件)</h4>
+       <table class="table">
+         <thead>
+           <tr>
+             <td>イメージ</td>
+             <td>商品名</td>
+             <td>ジャンル</td>
+             <td>税抜価格</td>
+           </tr>
+         </thead>
     </div>
-    <div class="col">
-      <table class="table">
+    <div class="row">
+      <div class="col">
         <% @items.each do |item| %>
           <tr>
-            <td><%= link_to item_path(item.id) do %></td>
-             <% if item.image.attached? %>
-            <td><%= image_tag item.image %></td>
-              <% else %>
-            <%= image_tag 'no_image.jpg' %>
+            <td><%= link_to item_path(item.id) do %>
+               <%= image_tag item.image, size: "100x100" %>
               <% end %>
+            </td>
             <td><%= item.item_name %></td>
+            <td><%= item.genre_id %></td>
             <td>¥<%= item.price %></td>
-                <% end %>
           </tr>
         <% end %>
-      </table>
+        </table>
+      </div>
     </div>
-  </div>
+ </div>
 </div>
