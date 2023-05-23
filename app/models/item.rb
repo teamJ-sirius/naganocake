@@ -9,6 +9,11 @@ class Item < ApplicationRecord
     (price * 1.1).floor
   end
 
-  validates :item_name, presence: true
+  validates :genre_id, presence: true
+  validates :item_name, presence: true, length: { maximum: 20 }
+  validates :item_description, presence: true, length: { maximum: 100 }
+  validates :price, presence: true
   validates :sales_status, inclusion: { in: [true, false] }
+  attribute :sales_status, :boolean, default: false
+  validates :image, presence: true
 end
