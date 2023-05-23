@@ -1,0 +1,42 @@
+body {
+  /*background-color: #968976;*/
+  /*136 87 41*/
+  background-color: rgba(136,94,33,0.38);
+  font-family: Georgia, serif;
+}
+
+/*カスタマーページ*/
+.mypage {
+  width: 40%;
+  margin-top: 30px;
+}
+
+.my-page-title {
+  color: #4e3030;
+  opacity: 0.6;
+  font-size: x-large;
+}
+
+.table-head {
+  width: 30%;
+  background-color: rgba(134,103,103,0.15);
+}
+
+.table-deta {
+  background-color: rgba(255,255,255,0.15);
+}
+
+.customer-edit {
+  font-size: small;
+  padding: 1px 7px;
+}
+
+.customer-order-detail {
+  opacity: 0.8;
+  font-size: small;
+}
+
+.customer-shipping-address {
+  opacity: 0.8;
+  font-size: small;
+}
