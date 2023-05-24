@@ -8,10 +8,11 @@
 
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <link href="assets/stylesheets/application.scss" rel="stylesheet">
+    <%= stylesheet_link_tag 'custom' %>
+
   </head>
 
-  <body data-spy="scroll" data-target="#h-nav" data-offset="86" style="padding-top: 5rem">
+  <body data-spy="scroll" data-target="#h-nav" data-offset="86" >
 <!--ヘッダー-->
 
     <%= render "layouts/header" %>
@@ -24,5 +25,6 @@
 
 <!--メインコンテンツ-->
     <%= yield %>
+  <%= render "layouts/footer" %>
   </body>
 </html>
