@@ -16,6 +16,7 @@
         <td><%= order.address %></td>
         <td><%= order.total_price %></td>
         <td><%= order.order_status %></td>
+        <td><%= link_to "注文履歴詳細" , order_path(order.id) %></td>
       </tr>
     <% end %>
   </tbody>

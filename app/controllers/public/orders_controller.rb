@@ -5,15 +5,29 @@ class Public::OrdersController < ApplicationController
       @order = Order.new
       @shipping_addresses = ShippingAddress.all
     else
-      flash[:notice] = "・カートが空です"
+      flash[:notice] = "カートが空です"
+      redirect_to request.referer
     end
   end
 
   def create
     @order = Order.new(order_params)
     @order.customer_id = current_customer.id
-    @order.save
-    redirect_to orders_complete_path
+    if @order.save
+      current_customer.cart_items.each do |cart_item|
+        @order_detaile = OrderDetail.new
+        @order_detaile.order_id = @order.id
+        @order_detaile.item_id = cart_item.item_id
+        @order_detaile.quantity = cart_item.quantity
+        @order_detaile.order_price = cart_item.item.price * 1.1
+        @order_detaile.save
+      end
+      current_customer.cart_items.destroy_all
+      redirect_to orders_complete_path
+    else
+      @cart_items = current_customer.cart_items
+      render :confirm
+    end
   end
 
   def index
@@ -21,7 +35,7 @@ class Public::OrdersController < ApplicationController
   end
 
   def show
-    @order_detail = OrderDetail.find(params[:id])
+    @order = Order.find(params[:id])
   end
 
   def confirm
