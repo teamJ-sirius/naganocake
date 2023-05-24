@@ -18,10 +18,10 @@ Rails.application.routes.draw do
     resources :shipping_addresses, only: [:index, :create, :edit, :update, :destroy]
 
   # 注文
-    post 'orders/confirm' => 'orders#confirm' 
+    post 'orders/confirm' => 'orders#confirm'
     get 'orders/complete' => 'orders#complete'
     resources :orders, only: [:new, :index, :show, :create]
-    
+
 
   # カート
     resources :cart_items, only: [:index, :update, :destroy, :create]do
@@ -58,7 +58,7 @@ Rails.application.routes.draw do
     resources :orders, only: [:index, :show, :update]
 
     # 製作商品
-    resources :order_items, only: [:update]
+    resources :order_details, only: [:update]
   end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
