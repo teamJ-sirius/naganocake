@@ -132,6 +132,29 @@ footer{
   width: 100%
 }
 
+.login {
+  margin-top: 50px;
+  margin-bottom: 20px;
+}
+
+.login_new {
+  margin-top: 30px;
+}
+
+.actions {
+  margin-bottom: 10px;
+}
+
+.item_index {
+  margin-top: 50px;
+  margin-bottom: 20px;
+}
+
+.admin_order {
+  margin-top: 50px;
+  margin-bottom: 20px;
+}
+
 .admin_order_detail {
   margin-top: 50px;
   margin-bottom: 20px;
