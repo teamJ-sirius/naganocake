@@ -1,37 +1,18 @@
-<div class="container">
-  <div class="row">
-    <div class="col">
+<div class="col">
        <h1>商品一覧</h1><h4>(全<%= @items.count %>件)</h4>
-       <table class="table">
-         <thead>
-           <tr>
-             <td>イメージ</td>
-             <td>商品名</td>
-             <td>ジャンル</td>
-             <td>税抜価格</td>
-           </tr>
-         </thead>
+</div>
+ <div class="d-flex flex-wrap ">
+  <% @items.each do |item| %>
+    <div class="col-3 my-2">
+      <%= link_to item_path(item.id) do %>
+        <div class="card text-dark h-100">
+         <%= image_tag item.image %>
+        <div class="card-body">
+          <h5 class="card-title"><%= item.item_name %></h5>
+          <p class="card-text"> ¥<%= item.price %></p>
+        </div>
+        </div>
+      <% end %>
     </div>
-    <div class="row">
-      <div class="col">
-        <% @items.each do |item| %>
-          <tr>
-            <td>
-              <%= link_to item_path(item.id) do %>
-                <% if item.image.attached? %>
-                  <%= image_tag item.image, size: "100x100" %>
-                <% else %>
-                  <%= image_tag 'no_image.jpg' %>
-                <% end %>
-              <% end %>
-            </td>
-            <td><%= item.item_name %></td>
-            <td><%= item.genre_id %></td>
-            <td>¥<%= item.price %></td>
-          </tr>
-        <% end %>
-        </table>
-      </div>
-    </div>
- </div>
+  <% end %>
 </div>
