@@ -79,6 +79,7 @@ body {
   text-align: left;
 }
 
+
 /*送り先情報*/
 .new-shipping_address-botton {
   display: flex;
@@ -114,3 +115,25 @@ body {
 .space {
   margin-left: 10rem;
 }
+
+/*フッター*/
+
+.footerFixed{
+    min-height: 100vh; /* ←コンテンツの高さの最小値＝ブラウザの高さに指定 */
+    position: relative;/* ←相対位置 */
+    padding-bottom: 60px; /* ←フッターの高さを指定 */
+    box-sizing: border-box;
+    /* ↑ヘッダーやフッターを含むすべての要素の高さ＝min-height:100vhになるように指定 */
+}
+
+footer{
+  position: absolute;  /* フッターを絶対配置に指定する設定 */
+  bottom: 0;           /* フッターを一番下 */
+  width: 100%
+}
+
+.admin_order_detail {
+  margin-top: 50px;
+  margin-bottom: 20px;
+}
+
