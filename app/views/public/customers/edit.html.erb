@@ -16,11 +16,11 @@
           	<tbody>
           		<tr class="table-row">
           			<th class="table-head">ふりがな</th>
-          			<td class="table-deta"><%= f.text_field :first_name_kana ,class: "customer-infomation" %><%= f.text_field :last_name_kana,class: "customer-infomation" %></td>
+          			<td class="table-deta">(せい) <%= f.text_field :first_name_kana ,class: "customer-infomation" %> (めい) <%= f.text_field :last_name_kana,class: "customer-infomation" %></td>
           		</tr>
           		<tr>
           			<th class="table-head">名前</th>
-          			<td class="table-deta"><%= f.text_field :first_name,class: "customer-infomation" %><%= f.text_field :last_name,class: "customer-infomation" %></td>
+          			<td class="table-deta">(姓) <%= f.text_field :first_name,class: "customer-infomation" %>(名) <%= f.text_field :last_name,class: "customer-infomation" %></td>
           		</tr>
           		<tr>
           			<th class="table-head">郵便番号</th>
