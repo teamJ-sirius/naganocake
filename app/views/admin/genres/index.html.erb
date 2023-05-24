@@ -1,16 +1,18 @@
-<h1>ジャンル管理画面</h1>
+<div class="container">
+<h1>Genre</h1>
 
-<div>
+<div class="genre_add">
   <%= form_with model: @genre, url: admin_genres_path, local: true do |f| %>
   <div class="field">
     <%= f.text_field :name, placeholder: 'ジャンル名' %>
   </div>
 
-    <%= f.submit "ジャンルを追加" %>
+    <%= f.submit "Add Genre",class: "btn btn-outline-dark" %>
   <% end %>
-
-
-  <table>
+</div>
+   <div class="row">
+    <div class="col-2">
+  <table class="table_genre">
     <table class="table table-border-top-bottom mb-5">
       <tbody>
         <% @genres.each do |genre| %>
@@ -24,4 +26,6 @@
         <% end %>
       </tbody>
     </table>
+  </div>
+  </div>
 </div>
