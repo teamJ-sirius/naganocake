@@ -1,31 +1,47 @@
-<div class="edit_customer">
-  <h3>会員情報編集画面</h3>
-  
-  <%= form_with model: @customer,method: :patch do |f|%>
-    <h4>ふりがな</h4>
-      <%= f.text_field :first_name_kana %>
-      <%= f.text_field :last_name_kana %>
+<div class="container mypage">
+  <div class="row">
+    <div class="col">
       
-    <h4>氏名</h4>
-      <%= f.text_field :first_name %>
-      <%= f.text_field :last_name %>
-      
-    <h4>郵便番号</h4>
-      <%= f.text_field :postcode %>
-      
-    <h4>住所</h4>
-      <%= f.text_field :addresse %>
-      
-    <h4>電話番号</h4>
-      <%= f.text_field :phone_number %>
-      
-    <h4>メールアドレス</h4>
-      <%= f.email_field :email %>
-      
-    <div>
-      <%= f.submit "変更内容を保存する" %>
-      <%= link_to "退会する", unsubscribe_customer_path %>
-    </div>
-   
-  <% end %>
-</div>
+        <% if @customer.errors.any? %>
+          <ul>
+            <% @customer.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        <%end%>
+        
+        <h3 class="my-page-title">会員情報編集画面</h3>
+        <%= form_with model: @customer,method: :patch do |f|%>
+          <table class="table table-bordered">
+          	<tbody>
+          		<tr class="table-row">
+          			<th class="table-head">ふりがな</th>
+          			<td class="table-deta"><%= f.text_field :first_name_kana ,class: "customer-infomation" %><%= f.text_field :last_name_kana,class: "customer-infomation" %></td>
+          		</tr>
+          		<tr>
+          			<th class="table-head">名前</th>
+          			<td class="table-deta"><%= f.text_field :first_name,class: "customer-infomation" %><%= f.text_field :last_name,class: "customer-infomation" %></td>
+          		</tr>
+          		<tr>
+          			<th class="table-head">郵便番号</th>
+          			<td class="table-deta"><%= f.text_field :postcode,class: "customer-infomation" %></td>
+          		</tr>
+          		<tr>
+          			<th class="table-head">住所</th>
+          			<td class="table-deta"><%= f.text_field :addresse,class: "customer-infomation" %></td>
+          		</tr>
+          		<tr>
+          			<th class="table-head">電話番号</th>
+          			<td class="table-deta"><%= f.text_field :phone_number,class: "customer-infomation" %></td>
+          		</tr>
+          		<tr>
+          			<th class="table-head">メールアドレス</th>
+          			<td class="table-deta"><%= f.email_field :email,class: "customer-infomation" %></td>
+          		</tr>
+          	</tbody>
+          </table>
+          <div>
+            <%= f.submit "変更内容を保存する" ,class: "btn btn-outline-dark customer-order-detail" %>
+            <%= link_to "退会する", unsubscribe_customer_path ,class: "btn btn-outline-dark customer-order-detail" %>
+          </div>
+        <% end %>
