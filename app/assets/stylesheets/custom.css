@@ -7,6 +7,17 @@ body {
   font-family: Georgia, serif;
 }
 
+.header-logo {
+  background-color: #192436;
+  position: fixed;
+  top: 0;
+  z-index: 1;
+  width: 100%;
+}
+
+.main {
+  margin-top: 15%;
+}
 /*カスタマーページ*/
 
 /*マイページ*/
