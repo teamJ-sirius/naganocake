@@ -1,5 +1,5 @@
 <div class="container">
-  <h2>注文履歴一覧</h2>
+  <h2 class="admin_order">Order List</h2>
   <div class="order_table">
     <table class="table">
       <thead>
@@ -15,7 +15,7 @@
         <tr>
           <td><%= link_to order.created_at.strftime("%Y-%m-%d %H:%M:%S"), admin_order_path(order) %></td>
           <td><%= order.customer.first_name + order.customer.last_name %></td>
-          <td><%= order.total_price %></td>
+          <td><%= order.total_price %>円</td>
           <td><%= order.order_status %></td>
         </tr>
       <% end %>
