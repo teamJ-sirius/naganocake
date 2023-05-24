@@ -6,7 +6,11 @@
     <div class="col-3 my-2">
       <%= link_to item_path(item.id) do %>
         <div class="card text-dark h-100">
+        <% if item.image.attached? %>
          <%= image_tag item.image %>
+         <% else %>
+         <%= image_tag 'no_image' %>
+        <% end %>
         <div class="card-body">
           <h5 class="card-title"><%= item.item_name %></h5>
           <p class="card-text"> ¥<%= item.price %></p>
