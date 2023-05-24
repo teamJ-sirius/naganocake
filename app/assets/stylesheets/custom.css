@@ -1,17 +1,25 @@
 body {
-  /*background-color: #968976;*/
-  /*136 87 41*/
-  /*background-color: rgba(136,94,33,0.38);*/
-  /*background-color: #f5deb3;*/
   background-color: rgba(136,94,33,0.4);
   font-family: Georgia, serif;
+  color: rgba(0,0,0,0.6);
 }
 
+.header-logo {
+  background-color: #192436;
+  position: fixed;
+  top: 0;
+  z-index: 1;
+  width: 100%;
+}
+
+.main {
+  margin-top: 15%;
+}
 /*カスタマーページ*/
 
 /*マイページ*/
 .mypage {
-  width: 40%;
+  width: 50%;
   margin-top: 30px;
 }
 
@@ -35,6 +43,7 @@ body {
   padding: 1px 7px;
 }
 
+/*フォーム*/
 .customer-order-detail {
   opacity: 0.8;
   font-size: small;
@@ -70,6 +79,43 @@ body {
   text-align: left;
 }
 
+
+/*送り先情報*/
+.new-shipping_address-botton {
+  display: flex;
+  justify-content: end;
+}
+
+.addresses_index {
+  margin-top: 15px;
+}
+
+.address-botton{
+  margin-bottom: 4px;
+  display: flex;
+  justify-content: end;
+  margin-top: -25px;
+}
+.address-botton2{
+  margin-bottom: 4px;
+  display: flex;
+  justify-content: center;
+}
+
+.address-text {
+  font-size: larger;
+}
+
+/*オーダー機能*/
+
+.payment {
+  margin-bottom: 15px;
+}
+
+.space {
+  margin-left: 10rem;
+}
+
 /*フッター*/
 
 .footerFixed{
@@ -90,3 +136,4 @@ footer{
   margin-top: 50px;
   margin-bottom: 20px;
 }
+
