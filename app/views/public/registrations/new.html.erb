@@ -3,6 +3,7 @@
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "public/shared/error_messages", resource: resource %>
+  
   <div class="d-flex">
     <div class="field">
       <%= f.label :"せい" %><br />
@@ -67,6 +68,7 @@
   </div>
 <% end %>
 
+<p class="login_new">登録済みの方はこちら</p>
 <%= render "public/shared/links" %>
 
 </div>
