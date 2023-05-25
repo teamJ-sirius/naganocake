@@ -7,47 +7,47 @@
   <div class="d-flex">
     <div class="field">
       <%= f.label :"せい" %><br />
-      <%= f.text_field :first_name_kana %>
+      <%= f.text_field :first_name_kana, placeholder: "せい" %>
     </div>
 
     <div class="field ml-2">
       <%= f.label :"めい" %><br />
-      <%= f.text_field :last_name_kana %>
+      <%= f.text_field :last_name_kana, placeholder: "めい" %>
     </div>
   </div>
 
   <div class="d-flex">
     <div class="field mt-2">
       <%= f.label :"姓" %><br />
-      <%= f.text_field :first_name %>
+      <%= f.text_field :first_name, placeholder: "姓"  %>
     </div>
 
     <div class="field mt-2 ml-2">
       <%= f.label :"名" %><br />
-      <%= f.text_field :last_name %>
+      <%= f.text_field :last_name, placeholder: "名"  %>
     </div>
   </div>
 
   <div class="d-flex">
     <div class="field mt-2">
       <%= f.label :"郵便番号(ハイフン無し)" %><br />
-      <%= f.text_field :postcode %>
+      <%= f.text_field :postcode, placeholder: "1234567" %>
     </div>
 
     <div class="field mt-2 ml-2">
       <%= f.label :"住所" %><br />
-      <%= f.text_field :addresse %>
+      <%= f.text_field :addresse, placeholder: "長野県長野市0-0-0"  %>
     </div>
   </div>
 
   <div class="field mt-2">
     <%= f.label :"電話番号" %><br />
-    <%= f.text_field :phone_number %>
+    <%= f.text_field :phone_number, placeholder: "09012345678"  %>
   </div>
 
   <div class="field mt-2">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "cake@naganocake.com" %>
   </div>
 
   <div class="field mt-2">
@@ -55,12 +55,12 @@
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> 文字以上)</em>
     <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+    <%= f.password_field :password, autocomplete: "new-password" , placeholder: "・・・・・・" %>
   </div>
 
   <div class="field mt-2">
     <%= f.label :"password  (確認用)" %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "・・・・・・"  %>
   </div>
 
   <div class="actions mt-2">
