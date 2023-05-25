@@ -197,10 +197,17 @@ ja:
         transfer: "銀行振込"
   devise:
     failure:
+      admin:
+        invalid: "入力内容が間違ってます"
       customer:
         invalid: "入力内容が間違ってます"
     sessions:
+      admin:
+        signed_in: "管理者としてログインしました"
+        signed_out: "管理者からログアウトしました"
       customer:
         signed_in: "ログインしました"
         signed_out: "ログアウトしました"
+    registrations:
+      customer:
         signed_up: "サインインしました"
