@@ -1,11 +1,6 @@
 <div class="container mypage">
   <div class="row">
     <div class="col">
-       <% if @order.errors.any? %>
-          <% @order.errors.full_messages.each do |message| %>
-            <%= message %>
-          <% end %>
-       <% end %>
         <%= form_with model: @order, url: "/orders/confirm", method: :post do |f| %>
          <div class="payment">
           <table class="table table-bordered">

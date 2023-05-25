@@ -1,7 +1,7 @@
 <div class="container mypage">
   <div class="row">
     <div class="col">
-      
+
         <% if @customer.errors.any? %>
           <ul>
             <% @customer.errors.full_messages.each do |message| %>
@@ -9,8 +9,8 @@
             <% end %>
           </ul>
         <%end%>
-        
-        <h3 class="my-page-title">会員情報編集画面</h3>
+
+        <h3 class="my-page-title">Customer Edit</h3>
         <%= form_with model: @customer,method: :patch do |f|%>
           <table class="table table-bordered">
           	<tbody>
@@ -40,8 +40,9 @@
           		</tr>
           	</tbody>
           </table>
-          <div>
             <%= f.submit "変更内容を保存する" ,class: "btn btn-outline-dark customer-order-detail" %>
             <%= link_to "退会する", unsubscribe_customer_path ,class: "btn btn-outline-dark customer-order-detail" %>
           </div>
         <% end %>
+  </div>
+</div>
