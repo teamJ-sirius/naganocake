@@ -26,6 +26,7 @@ class Public::OrdersController < ApplicationController
       redirect_to orders_complete_path
     else
       @cart_items = current_customer.cart_items
+      flash[:notice] = "〜支払方法、お届け先が不適切です〜"
       redirect_to new_order_path
     end
   end
