@@ -11,22 +11,22 @@
     <%= stylesheet_link_tag 'custom' %>
   </head>
 
+
   <body data-spy="scroll" data-target="#h-nav" data-offset="86" >
 <!--ヘッダー-->
   <header>
     <%= render "layouts/header" %>
-  </header>
-<!--フラッシュメッセージ-->
-    <% flash.each do |message_type, message| %>
-      <div class="alert alert-<%= message_type %>">
-        <%= message %>
-      </div>
-    <% end %>
 
-<!--メインコンテンツ-->
 
 
    <div class="main">
+     <!--フラッシュメッセージ-->
+     <% flash.each do |message_type, message| %>
+      <div class="alert alert-<%= message_type %>">
+        <%= message %>
+      </div>
+     <% end %>
+     <!--メインコンテンツ-->
      <%= yield %>
    </div>
 
