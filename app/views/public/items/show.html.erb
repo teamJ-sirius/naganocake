@@ -1,11 +1,11 @@
 <div class="container">
   <div class="row">
     <div class="col">
-      <h1>商品詳細</h1>
+      <h1 class="item_show_name"><strong><%= @item.item_name %></strong></h1>
     </div>
   </div>
   <div class="row">
-    <div class="col">
+    <div class="col-4">
       <br>
         <td>
           <% if @item.image.attached? %>
@@ -16,26 +16,25 @@
         </td>
     </div>
     <div class="col">
+    <div class="item_show_box">
       <dl class="dl">
-        <dt>商品名</dt>
-          <dd><%= @item.item_name %></dd><br>
-        <dt>商品の説明</dt>
           <dd> <%= @item.item_description %></dd><br>
-        <dt>税込価格</dt>
+
           <dd>¥<%= (@item.price*1.1).floor %></dd><br>
-        <dt>販売ステータス</dt>
+
           <dd><% if @item.sales_status == false %>
+              <p>販売中</p>
               <%= form_with model: @cart_item, url: cart_items_path, method: :post do |f| %>
                <%= f.hidden_field :item_id, value: @item.id %>
                <%= f.select :quantity, *[1..10] %>
-               <%= f.submit "カートに追加" %>
-            <p>販売中</p>
+               <%= f.submit "Add to cart",class:"btn btn-outline-dark" %>
               <% end %>
               <% else %>
             <p>売り切れ</p>
              <% end %>
           </dd>
       </dl>
+    </div>
     </div>
   </div>
 </div>
