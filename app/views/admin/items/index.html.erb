@@ -10,8 +10,8 @@
           <thead>
             <tr class="table-active">
               <td>商品ID</td>
-              <td>イメージ</td>
               <td>商品名</td>
+              <td>ジャンル</td>
               <td>税抜価格</td>
               <td>ステータス</td>
             </tr>
@@ -23,25 +23,18 @@
         <tbody>
           <tr>
             <td><%= item.id %></td>
-            <td><%= link_to admin_item_path(item.id) do %>
-                  <% if item.image.attached? %>
-                    <%= image_tag item.image, size: "100x100" %>
-                  <% else %>
-                    <%= image_tag 'no_image.jpg' %>
-                  <% end %>
-            </td>
-            <td><%= item.item_name %></td>
+            <td><%= link_to item.item_name, admin_item_path(item.id) %></td>
+            <td><%= item.genre.name %></td>
             <td>¥<%= item.price %></td>
             <td><% if item.sales_status == false %>
                 <p>販売中</p>
                 <% else %>
                 <p>売り切れ</p>
               <% end %>
-          </td>
+            </td>
                 <% end %>
           </tr>
           </tbody>
-        <% end %>
         </table>
       </div>
     </div>

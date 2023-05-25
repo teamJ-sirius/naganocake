@@ -111,7 +111,7 @@ ActiveRecord::Schema.define(version: 2023_05_24_054426) do
     t.integer "customer_id"
     t.integer "postage", default: 800
     t.integer "total_price"
-    t.integer "order_status", default: 0
+    t.integer "order_status"
     t.string "post_code"
     t.string "address"
     t.string "name"
