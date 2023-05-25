@@ -1,5 +1,14 @@
 ja:
   activerecord:
+    attributes:
+      customer:
+        last_name_kana: "”せい”"
+        first_name_kana: "”めい”"
+        last_name: "”姓”"
+        first_name: "”名”"
+        phone_number: "”電話番号”"
+        postcode: "”郵便番号”"
+        addresse: "”住所”"
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
@@ -101,6 +110,7 @@ ja:
       model_invalid: 'バリデーションに失敗しました: %{errors}'
       not_a_number: は数値で入力してください
       not_an_integer: は整数で入力してください
+      not_saved: ""
       odd: は奇数にしてください
       other_than: は%{count}以外の値にしてください
       present: は入力しないでください
@@ -185,3 +195,12 @@ ja:
       payment_method:
         credit_card: "クレジットカード"
         transfer: "銀行振込"
+  devise:
+    failure:
+      customer:
+        invalid: "入力内容が間違ってます"
+    sessions:
+      customer:
+        signed_in: "ログインしました"
+        signed_out: "ログアウトしました"
+        signed_up: "サインインしました"
