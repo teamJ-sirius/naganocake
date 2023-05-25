@@ -5,7 +5,7 @@
           <% @order.errors.full_messages.each do |message| %>
             <%= message %>
           <% end %>
-        <% end %>
+       <% end %>
         <%= form_with model: @order, url: "/orders/confirm", method: :post do |f| %>
          <div class="payment">
           <table class="table table-bordered">

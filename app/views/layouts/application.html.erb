@@ -16,17 +16,17 @@
 <!--ヘッダー-->
 
     <%= render "layouts/header" %>
-<!--フラッシュメッセージ-->
-    <% flash.each do |message_type, message| %>
-      <div class="alert alert-<%= message_type %>">
-        <%= message %>
-      </div>
-    <% end %>
 
-<!--メインコンテンツ-->
 
 
    <div class="main">
+     <!--フラッシュメッセージ-->
+     <% flash.each do |message_type, message| %>
+      <div class="alert alert-<%= message_type %>">
+        <%= message %>
+      </div>
+     <% end %>
+     <!--メインコンテンツ-->
      <%= yield %>
    </div>
 

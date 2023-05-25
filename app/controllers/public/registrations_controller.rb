@@ -2,7 +2,7 @@
 
 class Public::RegistrationsController < Devise::RegistrationsController
   def after_sign_up_path_for(resource)
-    edit_customer_path(current_customer)
+    customer_path(current_customer)
   end
   before_action :configure_permitted_parameters, if: :devise_controller?
   def configure_permitted_parameters
