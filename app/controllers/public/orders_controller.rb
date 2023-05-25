@@ -26,7 +26,7 @@ class Public::OrdersController < ApplicationController
       redirect_to orders_complete_path
     else
       @cart_items = current_customer.cart_items
-      render :confirm
+      redirect_to new_order_path
     end
   end
 
