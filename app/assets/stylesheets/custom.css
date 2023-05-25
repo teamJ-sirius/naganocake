@@ -186,6 +186,11 @@ footer{
   margin-bottom: 20px;
 }
 
+/*商品*/
+.card {
+   background-color: rgba(134,103,103,0.15);
+}
+
 .genre_add {
   margin-bottom: 30px;
 }
@@ -198,3 +203,4 @@ h1 {
   color: #4e3030;
   opacity: 0.6;
 }
+
