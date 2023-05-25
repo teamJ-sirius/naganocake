@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   sessions: 'public/sessions'
 }
 
+# get "/customers" => ""
 
   scope module: :public do
     root to: 'homes#top'

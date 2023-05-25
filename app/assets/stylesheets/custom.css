@@ -11,11 +11,77 @@ body {
   top: 0;
   z-index: 1;
   width: 100%;
+  
 }
 
 .main {
-  margin-top: 15%;
+  margin-top: 10%;
 }
+
+/*トップページ*/
+.top-head{
+  text-align: center;
+}
+
+.top-img {
+  width:100%;
+}
+ .cake-top {
+   width: 300px;
+   height: 100px;
+   background-color:#192436;
+   color: white;
+   font-size: 70px;
+   text-align: center;
+   letter-spacing:0.5rem;
+   position: relative;
+   margin: -65px 0 0 430px;
+ }
+ 
+ .pudding-top{
+   width: 450px;
+   height: 100px;
+   background-color:#192436;
+   color: white;
+   font-size: 70px;
+   text-align: center;
+   letter-spacing:0.5rem;
+   position: relative;
+   margin: -65px 0 0 -50px;
+ }
+ 
+.baced-goods-top{
+   width: 650px;
+   height: 100px;
+   background-color:#192436;
+   color: white;
+   font-size: 70px;
+   text-align: center;
+   letter-spacing:0.5rem;
+   position: relative;
+   margin: -65px 0 0 230px;
+ }
+ 
+ .candy-top {
+   width: 350px;
+   height: 100px;
+   background-color:#192436;
+   color: white;
+   font-size: 70px;
+   text-align: center;
+   letter-spacing:0.5rem;
+   position: relative;
+   margin: -65px 0 0 -50px;
+ }
+ .top-text{
+   padding: 15px;
+   margin-top: 15px;
+   margin-bottom: 1rem;
+   text-align: center;
+   background-color: rgba(255,255,255,0.5);
+   border-radius: 50%;
+ }
+
 /*カスタマーページ*/
 
 /*マイページ*/
@@ -119,22 +185,24 @@ body {
 /*フッター*/
 
 .footerFixed{
-    min-height: 100vh; /* ←コンテンツの高さの最小値＝ブラウザの高さに指定 */
-    position: relative;/* ←相対位置 */
-    padding-bottom: 60px; /* ←フッターの高さを指定 */
-    box-sizing: border-box;
+  min-height: 100vh; /* ←コンテンツの高さの最小値＝ブラウザの高さに指定 */
+  position: relative;/* ←相対位置 */
+  adding-bottom: 60px; /* ←フッターの高さを指定 */
+  box-sizing: border-box;
     /* ↑ヘッダーやフッターを含むすべての要素の高さ＝min-height:100vhになるように指定 */
 }
 
 footer{
   position: absolute;  /* フッターを絶対配置に指定する設定 */
   bottom: 0;           /* フッターを一番下 */
-  width: 100%
+  width: 100%;
 }
 
 .field {
   margin-bottom: 10px;
 }
+
+/*ログイン*/
 
 .login {
   margin-top: 50px;
@@ -148,6 +216,8 @@ footer{
 .actions {
   margin-bottom: 10px;
 }
+
+/*商品*/
 
 .item_index {
   margin-top: 50px;
@@ -167,14 +237,20 @@ footer{
   margin-top: 50px;
 }
 
+/*カート*/
+
 .cart_item_delete {
   margin-top: 20px;
   margin-bottom: 30px;
 }
 
+/*管理者商品新規登録*/
+
 .admin_new_item {
   margin-top: 20px;
 }
+
+/*管理者注文*/
 
 .admin_order {
   margin-top: 50px;
@@ -191,6 +267,8 @@ footer{
    background-color: rgba(134,103,103,0.15);
 }
 
+/*ジャンル*/
+
 .genre_add {
   margin-bottom: 30px;
 }
@@ -199,8 +277,19 @@ footer{
   margin-top: 10px;
 }
 
+/*全体デザイン*/
+
 h1 {
   color: #4e3030;
   opacity: 0.6;
 }
 
+.order-detail-head {
+  background-color: rgba(136,94,33,0.5);
+}
+
+/*アバウトページ*/
+
+.about_page {
+  top: 0;
+}

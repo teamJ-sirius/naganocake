@@ -24,7 +24,7 @@
         <td>
           <%= form_for (@order), url:admin_order_path(@order), method: :patch, local: true do |f| %>
             <%= f.select :order_status,Order.order_statuses.keys, class: "order_status" %>
-            <%= f.submit "Update", class: "btn btn-outline-dark" %>
+            <%= f.submit "変更", class: "btn btn-outline-dark" %>
           <% end %>
         </td>
       </tr>
@@ -50,7 +50,7 @@
             <%= form_with model: order_detail, url: admin_order_detail_path(order_detail), method: :patch, local: true do |f| %>
               <%= f.hidden_field :order_detail_id, :value => order_detail.id %>
               <%= f.select :making_status, OrderDetail.making_statuses.keys, class: "making_status" %>
-              <%= f.submit "Update", class: "btn btn-outline-dark" %>
+              <%= f.submit "変更", class: "btn btn-outline-dark" %>
             <% end %>
           </td>
         </tr>
@@ -62,16 +62,16 @@
       <table class="table">
         <tr>
           <th>商品合計</th>
-          <td><%= @order.total_price %>円</td>
+          <td>￥<%= @order.total_price %></td>
         </tr>
         <% postage = 800 %>
         <tr>
           <th>送料</th>
-          <td><%= "#{postage}円" %></td>
+          <td>￥<%= "#{postage}" %></td>
         </tr>
         <tr>
           <th>請求金額合計</th>
-          <td><%= "#{postage + @order.total_price}" %>円</td>
+          <td>￥<%= "#{postage + @order.total_price}" %></td>
         </tr>
       </table>
     </div>
