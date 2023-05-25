@@ -35,14 +35,14 @@
 		<tr>
 			<th>ステータス</th>
 			<td><% if @customer.is_deleted == true %>
-                  <%= "有効" %>
-                 <% else %>
                   <%= "退会" %>
+                 <% else %>
+                  <%= "有効" %>
                  <% end %></td>
 		</tr>
 	</tbody>
 </table>
 </div>
 </div>
-<%= link_to "会員情報編集", edit_admin_customer_path(@customer),class: "btn btn-outline-dark" %>
-<%= link_to "会員情報一覧ページ", admin_customers_path,class: "btn btn-outline-dark" %>
+<%= link_to "編集する", edit_admin_customer_path(@customer),class: "btn btn-outline-dark" %>
+<%= link_to "会員一覧", admin_customers_path,class: "btn btn-outline-dark" %>
