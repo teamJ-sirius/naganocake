@@ -1,13 +1,12 @@
 <div class="container">
   <h1>Order Detail</h1>
 
-<div class="container">
   <div class="row">
     <div class="col">
 
-      ご注文日：<%= @order_detail.created_at.strftime('%Y-%m-%d %H:%M') %>
+      <p>ご注文日：<%= @order_detail.created_at.strftime('%Y-%m-%d %H:%M') %></p>
       <table class="table">
-        <thead>
+        <thead class="order-detail-head">
           <tr>
             <th>商品名</th>
             <th>価格</th>
@@ -17,41 +16,43 @@
         </thead>
         <tbody>
           <% total = 0 %>
-          <% @order.order_details.each do |order_detail| %>
-          <% subtotal = order_detail.order_price * order_detail.quantity %>
-          <% total += subtotal %>
+          <% @order_detail.order.order_details.each do |order_detail| %>
+            <% subtotal = order_detail.order_price * order_detail.quantity %>
+            <% total += subtotal %>
             <tr>
               <td><%= order_detail.item.item_name %></td>
-              <td>¥<%=order_detail.order_price %></td>
+              <td>¥<%= order_detail.order_price %></td>
               <td><%= order_detail.quantity %></td>
-              <td><%= subtotal %></td>
+              <td>¥<%= subtotal %></td>
             </tr>
           <% end %>
         </tbody>
       </table>
-      <p class="text-right" style="margin-right: 15%;">注文ステータス：<%= @order_detail.order.order_status %></p>
+      <p class="text-right">注文ステータス：<%= @order_detail.order.order_status %></p>
 
       <p>配送先：<%= @order_detail.order.address %></p>
       <p>支払方法：<%= @order_detail.order.payment_method %></p>
 
-      <p>請求情報</p>
-      <table class="table table-sm">
-        <tbody>
-          <tr>
-            <th>商品合計</th>
-            <td><%= total %></td>
-          </tr>
-          <tr>
-            <th>配送料</th>
-            <td><%= @order_detail.order.postage %></td>
-          </tr>
-          <tr>
-            <th>ご請求額</th>
-            <% total_with_postage = total + @order_detail.order.postage %>
-            <td><%= total_with_postage %></td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="col-6" style="margin-top: 50px;">
+        <p>請求情報</p>
+        <table class="table table-bordered">
+          <tbody>
+            <tr>
+              <th>商品合計</th>
+              <td>¥<%= total %></td>
+            </tr>
+            <tr>
+              <th>配送料</th>
+              <td>¥<%= @order_detail.order.postage %></td>
+            </tr>
+            <tr>
+              <th>ご請求額</th>
+              <% total_with_postage = total + @order_detail.order.postage %>
+              <td>¥<%= total_with_postage %></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 </div>
