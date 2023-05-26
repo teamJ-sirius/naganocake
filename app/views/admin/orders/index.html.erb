@@ -6,7 +6,7 @@
         <tr class="table-active">
           <th style="width: 20%">購入日時</th>
           <th style="width: 20%">購入者</th>
-          <th style="width: 10%">金額</th>
+          <th style="width: 10%">注文個数</th>
           <th style="width: 20%">注文ステータス</th>
         </tr>
       </thead>
@@ -15,7 +15,7 @@
         <tr>
           <td><%= link_to order.created_at.strftime("%Y-%m-%d %H:%M:%S"), admin_order_path(order) %></td>
           <td><%= order.customer.first_name + order.customer.last_name %></td>
-          <td>￥<%= order.total_price %></td>
+          <td><%=order.order_details.sum(:quantity) %>個</td>
           <td><%= order.order_status %></td>
         </tr>
       <% end %>
