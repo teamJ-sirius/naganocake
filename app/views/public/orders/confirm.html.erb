@@ -20,10 +20,10 @@
             <tr>
               <td><%= image_tag cart_item.item %></td>
               <td><%= cart_item.item.item_name %></td>
-              <td><%= cart_item.item.price %>円</td>
+              <td><%= cart_item.item.with_tax_price  %>円</td>
               <td><%= cart_item.quantity %></td>
-              <td><%= cart_item.item.price * cart_item.quantity %>円</td>
-              <% subtotal += cart_item.item.price * cart_item.quantity %>
+              <td><%= cart_item.item.with_tax_price * cart_item.quantity %>円</td>
+              <% subtotal += cart_item.item.with_tax_price * cart_item.quantity %>
             </tr>
           <% end %>
       </tbody>
@@ -36,11 +36,11 @@
       			<th>小計</th>
       			<th>ご請求金額</th>
       		</tr>
-      		<% postage = 800 %>
+
       		<tr>
-      			<td><%= "#{postage}円" %></td>
+      			<td><%= "#{@order.postage}円" %></td>
       			<td><%= "#{subtotal}" + "円" %></td>
-      			<td><%= "#{postage + subtotal}円" %></td>
+      			<td><%= "#{@order.postage + subtotal}円" %></td>
       		</tr>
       	</tbody>
       </table>
@@ -64,7 +64,7 @@
     </div>
 
 
-      <% @order.total_price = postage + subtotal %>
+      <% @order.total_price = @order.postage + subtotal %>
 
       <%= form_with model: @order, url: orders_path, method: :post do |f| %>
         <%= f.hidden_field :customer_id, value: current_customer.id %>
