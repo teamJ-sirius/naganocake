@@ -71,3 +71,6 @@
     </div>
   </div>
 </div>
+<% if @order.errors.any? %>
+  <%= javascript_pack_tag 'orders/render' %>
+<%end%>
