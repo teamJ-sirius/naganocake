@@ -18,7 +18,13 @@ body {
 }
 
 /*トップページ*/
-.top-head{
+.top-header {
+  background-color: #192436;
+  margin: -46px;
+  padding: 20px;
+  color: white;
+}
+.top-header-text{
   text-align: center;
   margin-top: 20px;
 }
@@ -80,6 +86,16 @@ body {
    text-align: center;
    background-color: rgba(255,255,255,0.5);
    border-radius: 50%;
+ }
+ 
+ .products-all {
+   padding: 15px;
+   border:3px solid #4e3030;
+   color:#4e3030;
+ }
+ 
+ .products-all:hover {
+   color:#4e3030;
  }
 
 
@@ -289,4 +305,12 @@ h1 {
 
 .about_page {
   top: 0;
+}
+
+/*レスポンシブ*/
+
+@media (max-width: 834px){
+  .footer {
+    background-color: red;
+  }
 }
