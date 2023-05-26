@@ -22,7 +22,7 @@
               <td><%= cart_item.item.item_name %></td>
               <td><%= cart_item.item.price %>円</td>
               <td><%= cart_item.quantity %></td>
-              <td><%= cart_item.item.price * cart_item.quantity %></td>
+              <td><%= cart_item.item.price * cart_item.quantity %>円</td>
               <% subtotal += cart_item.item.price * cart_item.quantity %>
             </tr>
           <% end %>
@@ -75,6 +75,6 @@
         <%= f.hidden_field :address %>
         <%= f.hidden_field :order_status %>
         <%= f.submit "注文を確定する",class:"btn btn-outline-dark" %>
-   
+
    <% end %>
 </div></div></div>
