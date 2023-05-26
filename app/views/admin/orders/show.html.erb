@@ -45,7 +45,7 @@
           <td><%= order_detail.item.item_name %></td>
           <td>￥<%= order_detail.order_price %></td>
           <td><%= order_detail.quantity %></td>
-          <td>￥<%= order_detail.item.price * order_detail.quantity %></td>
+          <td>￥<%= order_detail.item.with_tax_price * order_detail.quantity %></td>
           <td>
             <%= form_with model: order_detail, url: admin_order_detail_path(order_detail), method: :patch, local: true do |f| %>
               <%= f.hidden_field :order_detail_id, :value => order_detail.id %>
@@ -60,11 +60,11 @@
     </div>
     <div class="col-4">
       <table class="table">
+      <% postage = 800 %>
         <tr>
           <th>商品合計</th>
-          <td>￥<%= @order.total_price %></td>
+          <td>￥<%= "#{@order.total_price - postage}" %></td>
         </tr>
-        <% postage = 800 %>
         <tr>
           <th>送料</th>
           <td>￥<%= "#{postage}" %></td>
