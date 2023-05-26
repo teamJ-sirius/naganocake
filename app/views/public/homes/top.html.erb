@@ -53,11 +53,25 @@
         お子様から大人まで楽しめる一品です。贈り物やイベントのお土産にもぴったりで、<br>
         ひとつひとつが楽しさと魅力に溢れています。</p>
       </div>
-      
+
       <div class="d-flex justify-content-center">
        <%= link_to "ALL PRODUCTS",items_path, type: "button", class: "h4 products-all"%>
       </div>
-
+      <div class="d-flex flex-wrap ">
+        <% @item.last(4).each do |item| %>
+          <div class="col-3 my-2">
+            <%= link_to item_path(item.id) do %>
+              <div class="card text-dark h-100">
+              <% if item.image.attached? %>
+          　     <%= image_tag item.image %>
+              <% else %>
+          　     <%= image_tag 'no_image.jpg' %>
+              <% end %>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
