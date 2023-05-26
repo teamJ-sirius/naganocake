@@ -87,13 +87,13 @@ body {
    background-color: rgba(255,255,255,0.5);
    border-radius: 50%;
  }
- 
+
  .products-all {
    padding: 15px;
    border:3px solid #4e3030;
    color:#4e3030;
  }
- 
+
  .products-all:hover {
    color:#4e3030;
  }
@@ -202,7 +202,7 @@ body {
 /*フッター*/
 
 .footerFixed{
-  min-height: 60vh; /* ←コンテンツの高さの最小値＝ブラウザの高さに指定 */
+  min-height: 80vh; /* ←コンテンツの高さの最小値＝ブラウザの高さに指定 */
   position: relative;/* ←相対位置 */
   adding-bottom: 60px; /* ←フッターの高さを指定 */
   box-sizing: border-box;
