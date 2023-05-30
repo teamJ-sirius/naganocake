@@ -1,0 +1,18 @@
+<div class="container customer-withdrawal">
+  <div class="row">
+    <div class="col withdrawal-check">
+      <h2>本当に退会しますか？</h2>
+      <div class="withdrawal-text">
+        <p>
+          退会すると、会員情報登録や<br>
+          これまでの購入履歴が閲覧できなくなります。<br>
+          退会する場合は、「退会する」をクリックしてください。
+        </p>
+      </div>
+      <div>
+        <%= link_to "退会しない", edit_customer_path ,class: "btn btn-outline-dark customer-shipping-address" %>
+        <%= link_to "退会する", withdraw_customer_path, method: :patch, data: { confirm: "本当に退会しますか？" } ,class: "btn btn-outline-dark customer-shipping-address" %>
+      </div>
+   </div>
+  </div>
+</div>

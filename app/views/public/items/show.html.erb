@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h1 class="item_show_name"><strong><%= @item.item_name %></strong></h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-4">
+      <br>
+        <td>
+          <% if @item.image.attached? %>
+            <%= image_tag @item.image, size: "300x300" %>
+          <% else %>
+            <%= image_tag 'no_image.jpg' %>
+          <% end %>
+        </td>
+    </div>
+    <div class="col">
+    <div class="item_show_box">
+      <dl class="dl">
+          <dd> <%= @item.item_description %></dd><br>
+
+          <dd>¥<%= (@item.price*1.1).floor %></dd><br>
+
+          <dd><% if @item.sales_status == false %>
+              <p>販売中</p>
+              <%= form_with model: @cart_item, url: cart_items_path, method: :post do |f| %>
+               <%= f.hidden_field :item_id, value: @item.id %>
+               <%= f.select :quantity, *[1..10] %>
+               <%= f.submit "カートに入れる",class:"btn btn-outline-dark" %>
+              <% end %>
+              <% else %>
+            <p>売り切れ</p>
+             <% end %>
+          </dd>
+      </dl>
+    </div>
+    </div>
+  </div>
+</div>

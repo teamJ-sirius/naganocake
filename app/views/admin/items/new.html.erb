@@ -1,0 +1,36 @@
+<div class="container">
+<h1>New Product</h1>
+
+<%= form_with model: @item, url: admin_items_path, local: true do |f| %>
+  <div class="field">
+    商品名<br/>
+    <%= f.text_field :item_name, class: "form-control", style: "border-color: #ccc; width: 250px; margin: 15px 0px;" %>
+  </div>
+
+  <div class="field">
+    商品説明文<br/>
+    <%= f.text_area :item_description, class: "form-control", style: "border-color: #ccc; width: 250px; margin: 15px 0px;" %>
+  </div>
+
+  <div class="field">
+    商品ジャンル<br/>
+    <%= f.select :genre_id, options_for_select([['選択してください', nil]] + Genre.pluck(:name, :id), '選択してください') %>
+  </div>
+
+  <div class="field">
+    税抜価格<br/>
+    <%= f.number_field :price, class: "form-control", style: "border-color: #ccc; width: 250px; margin: 15px 0px;" %>
+  </div>
+
+  <div class="field">
+    商品画像<br/>
+    <%= f.file_field :image, accept: "image/*", style: "margin: 10px 0px;" %>
+  </div>
+
+
+  <%= f.select :sales_status, [['販売中', false], ['売り切れ', true]] %>
+
+
+  <p class="admin_new_item"><%= f.submit "商品登録", class: "btn btn-outline-dark" %></p>
+<% end %>
+</div>

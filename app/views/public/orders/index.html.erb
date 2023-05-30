@@ -1,0 +1,30 @@
+<div class="container">
+  <h1>Order List</h1>
+
+  <div class="row justify-content-center">
+    <div class="col">
+      <table class="table">
+        <thead class="order-detail-head">
+          <tr>
+            <th scope="col">注文日</th>
+            <th scope="col">配送先</th>
+            <th scope="col">支払金額</th>
+            <th scope="col">注文ステータス</th>
+            <th scope="col">詳細</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @orders.each do |order| %>
+            <tr>
+              <td><%= order.created_at.strftime('%Y-%m-%d %H:%M') %></td>
+              <td><%= order.address %></td>
+              <td>¥<%= order.total_price %></td>
+              <td><%= order.order_status %></td>
+              <td><%= link_to "注文履歴詳細", order_path(order) %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

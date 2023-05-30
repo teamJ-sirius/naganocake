@@ -1,0 +1,49 @@
+<div class="container">
+  <div class="row">
+    <div class="col">
+        <h1>Products List</h1>
+        </div>
+    <div class="col-sm-2 px-sm-0 text-right mb-2">
+      <%= link_to "商品登録", new_admin_item_path, class: "btn btn-outline-dark" %>
+    </div>
+      <table class="table table-bordered" >
+          <thead>
+            <tr class="table-active">
+              <td>商品ID</td>
+              <td>イメージ</td>
+              <td>商品名</td>
+              <td>税抜価格</td>
+              <td>ステータス</td>
+            </tr>
+          </thead>
+    </div>
+    <div class="row">
+      <div class="col">
+        <% @items.each do |item| %>
+        <tbody>
+          <tr>
+            <td><%= item.id %></td>
+            <td><%= link_to admin_item_path(item.id) do %>
+                  <% if item.image.attached? %>
+                    <%= image_tag item.image, size: "100x100" %>
+                  <% else %>
+                    <%= image_tag 'no_image.jpg' %>
+                  <% end %>
+            </td>
+            <td><%= item.item_name %></td>
+            <td>¥<%= item.price %></td>
+            <td><% if item.sales_status == false %>
+                <p>販売中</p>
+                <% else %>
+                <p>売り切れ</p>
+              <% end %>
+          </td>
+                <% end %>
+          </tr>
+          </tbody>
+        <% end %>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

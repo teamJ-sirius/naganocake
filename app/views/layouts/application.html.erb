@@ -6,11 +6,33 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'custom' %>
   </head>
 
-  <body>
-    <%= yield %>
+
+  <body data-spy="scroll" data-target="#h-nav" data-offset="86" >
+<!--ヘッダー-->
+  <header>
+    <%= render "layouts/header" %>
+
+
+
+   <div class="main">
+     <!--フラッシュメッセージ-->
+     <% flash.each do |message_type, message| %>
+      <div class="alert alert-<%= message_type %>">
+        <%= message %>
+      </div>
+     <% end %>
+     <!--メインコンテンツ-->
+     <%= yield %>
+   </div>
+
+    <div class="footerFixed">
+
+  <%= render "layouts/footer" %>
+    </div>
   </body>
 </html>

@@ -1,0 +1,41 @@
+<div class="container mypage">
+  <div class="row">
+    <div class="col">
+
+      <h3 class="my-page-title">My Page <%= link_to "編集", edit_customer_path(current_customer) ,class: "btn btn-outline-dark customer-edit"%></h3>
+
+      <table class="table table-bordered">
+      	<tbody>
+      		<tr class="table-row">
+      			<th class="table-head">ふりがな</th>
+      			<td class="table-deta"><%= "#{@customer.first_name_kana}"+"#{@customer.last_name_kana}" %></td>
+      		</tr>
+      		<tr>
+      			<th class="table-head">名前</th>
+      			<td class="table-deta"><%= "#{@customer.first_name}"+"#{@customer.last_name}" %></td>
+      		</tr>
+      		<tr>
+      			<th class="table-head">郵便番号</th>
+      			<td class="table-deta">〒<%= @customer.postcode %></td>
+      		</tr>
+      		<tr>
+      			<th class="table-head">住所</th>
+      			<td class="table-deta"><%= @customer.addresse %></td>
+      		</tr>
+      		<tr>
+      			<th class="table-head">電話番号</th>
+      			<td class="table-deta"><%= @customer.phone_number %></td>
+      		</tr>
+      		<tr>
+      			<th class="table-head">メールアドレス</th>
+      			<td class="table-deta"><%= @customer.email %></td>
+      		</tr>
+      	</tbody>
+      </table>
+       <div>
+          <%= link_to "注文履歴", orders_path ,class: "btn btn-outline-dark customer-order-detail"%>
+          <%= link_to "配送先一覧", shipping_addresses_path ,class: "btn btn-outline-dark customer-shipping-address"%>
+       </div>
+    </div>
+  </div>
+</div>
